@@ -162,10 +162,8 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
       <h2 class="title is-3">Video DDIM Inversion and Restoration</h2>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/latents.m4v"
         type="video/mp4">
       </video>
@@ -184,7 +182,6 @@
         <br/><br/>We find that applying the new prompt from t=600 to t=0 changes the appearance to a cat as per the new prompt while maintaining the original video's motion. In other words, motion information is localized within t=1000 to t=600 independently of spatial information. We also observe that spatial information is mostly contained from t=600 to t=400, although we limit our further analysis to motion only. Complete video results from this figure are below.
       </h2>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/inversion.m4v"
         type="video/mp4">
       </video>
@@ -192,6 +189,25 @@
   </div>
 </section>
 <!-- End latents -->
+
+<!-- Application -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Application: Motion Customization</h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/application.m4v"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Using our findings, we can efficiently fine-tune a diffusion model to replicate a motion by strictly training on timesteps from t=1000 to t=600. Because this is decoupled from the timesteps responsible for spatial information, we are able to transfer the reference motion to a new video without leakage of spatial attributes.
+        <br/><br/>
+        Our method is versatile across different fine-tuning methods and base models. The first three examples are using the ModelScope model with LoRA, the fourth example is using the Latte model with LoRA, and the fifth example is using ModelScope with direct fine-tuning.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End application -->
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
