@@ -134,7 +134,7 @@
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        How motion, appearance, and low-level details materialize throughout the video diffusion generation process. We find that these properties are encoded in distinct timestep intervals and are thus inherently decoupled.
+        How temporal (e.g. motion) and spatial (e.g. apperance) information materializes throughout the video diffusion generation process. We find that temporal and spatial attributes are encoded in distinct timestep intervals and are thus inherently decoupled.
       </h2>
     </div>
   </div>
@@ -158,128 +158,46 @@
 </section>
 <!-- End paper abstract -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
+<!-- Latents -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
+      <h2 class="title is-3">Video DDIM Inversion and Restoration</h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/latents.m4v"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Decoded latents at various points of the diffusion process when applying DDIM inversion on an existing video starting from t=0. Up until t=600, the original motion of the video remains intact, while the spatial information is slowly removed.
+      </h2>
+    </div>
+    <br/>
+
+    <div class="container" style="display: flex; justify-content: center;">
+      <img src="static/images/inversion.png" style="width: 50%;"/>
+    </div>
+    <div class="container">
+      <h2 class="subtitle has-text-centered">
+        Results of resampling the DDIM inverted latents of the existing video with a new prompt. In this case, the original prompt is "a monkey walking" and the new prompt is "a cat walking". When sampling unconditionally, we expect to retain the original video attributes; sampling with the new prompt will edit the generation result.
+        <br/><br/>We find that applying the new prompt from t=600 to t=0 changes the appearance to a cat as per the new prompt while maintaining the original video's motion. In other words, motion information is localized within t=1000 to t=600 independently of spatial information. We also observe that spatial information is mostly contained from t=600 to t=400, although we limit our further analysis to motion only. Complete video results from this figure are below.
+      </h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/inversion.m4v"
+        type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
+<!-- End latents -->
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>Coming soon!</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
