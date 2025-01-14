@@ -148,7 +148,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
           <h2 class="subtitle has-text-centered">
-            Text-to-video diffusion models jointly process spatial and temporal information while generating videos, although the interaction between these dimensions remains underexplored. In this work, we reveal that distinct timestep intervals in the diffusion process specialize in encoding temporal, spatial, and fine-grained details. This property is consistent across models with different architectures, suggesting that it is a universal characteristic of video diffusion models. To demonstrate the practical utility of this property, we develop a timestep-constrained LoRA fine-tuning method that achieves precise motion customization without requiring explicit spatial debiasing. Our findings provide novel empirical insights into the internal mechanics of video diffusion models, enabling progress in downstream applications requiring motion understanding.
+            Text-to-video diffusion models jointly process spatial and temporal information while generating videos, although the interaction between these dimensions remains underexplored. In this work, we reveal that distinct timestep intervals in the diffusion process specialize in encoding temporal and spatial information. This property is consistent across models with different architectures, suggesting that it is a universal characteristic of video diffusion models. To demonstrate the practical utility of this property, we develop a timestep-constrained LoRA fine-tuning method that achieves precise motion customization without requiring explicit spatial debiasing. Our findings provide novel empirical insights into the internal mechanics of video diffusion models, enabling progress in downstream applications requiring motion understanding.
           </h2>
       </div>
     </div>
@@ -166,7 +166,7 @@
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Decoded latents at various points of the diffusion process when applying DDIM inversion on an existing video starting from t=0. Up until t=600, the original motion of the video remains intact, while the spatial information is slowly removed.
+        Decoded latents at various points of the diffusion process when applying DDIM inversion on an existing video starting from t=0. Up until t=600, the original motion of the video remains intact, while the spatial information is gradually removed.
       </h2>
     </div>
     <br/>
@@ -195,6 +195,7 @@
       <img src="static/images/method.png" style="width: 50%;"/>
       <h2 class="subtitle has-text-centered">
         Using our findings, we can efficiently fine-tune a diffusion model to replicate a motion by strictly training on timesteps from t=1000 to t=600. Because this is decoupled from the timesteps responsible for spatial information, we are able to transfer the reference motion to a new video without leakage of spatial attributes.
+        Unlike other concurrent methods, our approach does not require any additional spatial debiasing training modules or loss functions.
       </h2>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <source src="static/videos/application.m4v"
