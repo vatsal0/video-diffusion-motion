@@ -147,11 +147,9 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
+          <h2 class="subtitle has-text-centered">
             Text-to-video diffusion models jointly process spatial and temporal information while generating videos, although the interaction between these dimensions remains underexplored. In this work, we reveal that distinct timestep intervals in the diffusion process specialize in encoding temporal, spatial, and fine-grained details. This property is consistent across models with different architectures, suggesting that it is a universal characteristic of video diffusion models. To demonstrate the practical utility of this property, we develop a timestep-constrained LoRA fine-tuning method that achieves precise motion customization without requiring explicit spatial debiasing. Our findings provide novel empirical insights into the internal mechanics of video diffusion models, enabling progress in downstream applications requiring motion understanding.
-          </p>
-        </div>
+          </h2>
       </div>
     </div>
   </div>
@@ -159,9 +157,9 @@
 <!-- End paper abstract -->
 
 <!-- Latents -->
-<section class="hero is-small is-light">
+<section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
+    <div class="container is-centered has-text-centered">
       <h2 class="title is-3">Video DDIM Inversion and Restoration</h2>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <source src="static/videos/latents.m4v"
@@ -173,18 +171,15 @@
     </div>
     <br/>
 
-    <div class="container" style="display: flex; justify-content: center;">
-      <img src="static/images/inversion.png" style="width: 50%;"/>
-    </div>
-    <div class="container">
-      <h2 class="subtitle has-text-centered">
-        Results of resampling the DDIM inverted latents of the existing video with a new prompt. In this case, the original prompt is "a monkey walking" and the new prompt is "a cat walking". When sampling unconditionally, we expect to retain the original video attributes; sampling with the new prompt will edit the generation result.
-        <br/><br/>We find that applying the new prompt from t=600 to t=0 changes the appearance to a cat as per the new prompt while maintaining the original video's motion. In other words, motion information is localized within t=1000 to t=600 independently of spatial information. We also observe that spatial information is mostly contained from t=600 to t=400, although we limit our further analysis to motion only. Complete video results from this figure are below.
-      </h2>
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
+    <div class="container is-centered has-text-centered">
+      <video poster="" id="tree" autoplay controls muted loop style="width: 50%;">
         <source src="static/videos/inversion.m4v"
         type="video/mp4">
       </video>
+      <h2 class="subtitle has-text-centered">
+        Results of resampling the DDIM inverted latents of the existing video with a new prompt. In this case, the original prompt is "a monkey walking" and the new prompt is "a cat walking". When sampling unconditionally, we expect to retain the original video attributes; sampling with the new prompt will edit the generation result.
+        <br/><br/>We find that applying the new prompt from t=600 to t=0 changes the appearance to a cat as per the new prompt while maintaining the original video's motion. In other words, motion information is localized within t=1000 to t=600 independently of spatial information.
+      </h2>
     </div>
   </div>
 </section>
@@ -193,15 +188,19 @@
 <!-- Application -->
 <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
+    
+
+    <div class="container is-centered has-text-centered">
       <h2 class="title is-3">Application: Motion Customization</h2>
+      <img src="static/images/method.png" style="width: 50%;"/>
+      <h2 class="subtitle has-text-centered">
+        Using our findings, we can efficiently fine-tune a diffusion model to replicate a motion by strictly training on timesteps from t=1000 to t=600. Because this is decoupled from the timesteps responsible for spatial information, we are able to transfer the reference motion to a new video without leakage of spatial attributes.
+      </h2>
       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <source src="static/videos/application.m4v"
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Using our findings, we can efficiently fine-tune a diffusion model to replicate a motion by strictly training on timesteps from t=1000 to t=600. Because this is decoupled from the timesteps responsible for spatial information, we are able to transfer the reference motion to a new video without leakage of spatial attributes.
-        <br/><br/>
         Our method is versatile across different fine-tuning methods and base models. The first three examples are using the ModelScope model with LoRA, the fourth example is using the Latte model with LoRA, and the fifth example is using ModelScope with direct fine-tuning.
       </h2>
     </div>
@@ -227,8 +226,6 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
         </div>
